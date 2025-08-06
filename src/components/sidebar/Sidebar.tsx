@@ -1,12 +1,10 @@
 import {
-  DotsThreeVerticalIcon,
-  HouseIcon,
-  PackageIcon,
-  TagIcon
+  DotsThreeVerticalIcon
 } from '@phosphor-icons/react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import FarmaAdminLogo from '../../assets/images/FarmaAdmin.png';
+import { sidebarItems } from './SidebarData';
+import SidebarItem from './SidebarItem';
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
@@ -64,28 +62,15 @@ export default function Sidebar() {
 
       <span className='shadow-md block h-[1px] bg-slate-500 mx-4' />
 
-      <nav className="flex flex-col gap-4 px-4 mt-6">
-        <Link
-          to="/"
-          className={`flex items-center gap-3 text-gray-600 hover:text-white hover:bg-[#3b8b7d] p-2 rounded transition-all duration-300 ${fullyCollapsed && 'justify-center'}`}
-        >
-          <HouseIcon size={20} />
-          {!collapsed && <span>Início</span>}
-        </Link>
-        <Link
-          to="/produtos"
-          className={`flex items-center gap-3 text-gray-600 hover:text-white hover:bg-[#3b8b7d] p-2 rounded transition-all duration-300 ${fullyCollapsed && 'justify-center'}`}
-        >
-          <PackageIcon size={20} />
-          {!collapsed && <span>Produtos</span>}
-        </Link>
-        <Link
-          to="/categorias"
-          className={`flex items-center gap-3 text-gray-600 hover:text-white hover:bg-[#3b8b7d] p-2 rounded transition-all duration-300 ${fullyCollapsed && 'justify-center'}`}
-        >
-          <TagIcon size={20} />
-          {!collapsed && <span>Categorias</span>}
-        </Link>
+      <nav className="h-full flex flex-col gap-2 p-4 shadow-md z-10">
+        {sidebarItems.map((item, index) => (
+          <SidebarItem
+            key={index}
+            item={item}
+            collapsed={collapsed}
+            fullyCollapsed={fullyCollapsed}
+          />
+        ))}
       </nav>
 
     </aside>
