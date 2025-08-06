@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
 import Categorias from "./pages/categorias/Categorias";
@@ -19,6 +20,7 @@ function App() {
               <Route path="/categorias" element={<Categorias />} />
             </Routes>
           </main>
+          <Footer />
         </div>
       </div>
     </BrowserRouter>
