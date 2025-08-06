@@ -1,4 +1,5 @@
 import { UserCircleIcon } from '@phosphor-icons/react';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -10,9 +11,9 @@ export default function Header() {
       />
 
       <div className="ml-6">
-        <a href="/" className="text-gray-700 hover:text-[#5BBFAA]">
+        <Link to="/" className="text-gray-700 hover:text-[#5BBFAA]">
           <UserCircleIcon size={36} weight="thin" />
-        </a>
+        </Link>
       </div>
     </header>
   );
